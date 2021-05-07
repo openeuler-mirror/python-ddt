@@ -1,49 +1,41 @@
 %global _empty_manifest_terminate_build 0
 Name:		python-ddt
-Version:	1.4.1
+Version:	1.2.1
 Release:	1
 Summary:	Data-Driven/Decorated Tests
 License:	MIT License
-URL:		https://github.com/datadriventests/ddt
-Source0:	https://files.pythonhosted.org/packages/1b/e3/499cfd630d217a4fa536f03465f879fb68492e2672851214c6eb024f1716/ddt-1.4.1.tar.gz
+URL:		https://github.com/txels/ddt
+Source0:	https://files.pythonhosted.org/packages/6c/1e/6f33404c73f2ea97b9e44f6115cfc4a2e43b5d303cb288be427f8e194d72/ddt-1.2.1.tar.gz
 BuildArch:	noarch
-
-Requires:	python3-enum34
-
 %description
-A library to multiply test cases
+A library to multiply test cases.
 
 
-
-
-%package -n python3-ddt
+%package -n python2-ddt
 Summary:	Data-Driven/Decorated Tests
-Provides:	python-ddt
-BuildRequires:	python3-devel
-BuildRequires:	python3-setuptools
-%description -n python3-ddt
-A library to multiply test cases
-
-
+Provides:	python2-ddt
+BuildRequires:	python2-devel
+BuildRequires:	python2-setuptools
+BuildRequires:  python2-pip
+%description -n python2-ddt
+A library to multiply test cases.
 
 
 %package help
 Summary:	Development documents and examples for ddt
-Provides:	python3-ddt-doc
+Provides:	python2-ddt-doc
 %description help
-A library to multiply test cases
-
-
+A library to multiply test cases.
 
 
 %prep
-%autosetup -n ddt-1.4.1
+%autosetup -n ddt-1.2.1
 
 %build
-%py3_build
+%py2_build
 
 %install
-%py3_install
+%py2_install
 install -d -m755 %{buildroot}/%{_pkgdocdir}
 if [ -d doc ]; then cp -arf doc %{buildroot}/%{_pkgdocdir}; fi
 if [ -d docs ]; then cp -arf docs %{buildroot}/%{_pkgdocdir}; fi
@@ -70,12 +62,12 @@ popd
 mv %{buildroot}/filelist.lst .
 mv %{buildroot}/doclist.lst .
 
-%files -n python3-ddt -f filelist.lst
-%dir %{python3_sitelib}/*
+%files -n python2-ddt -f filelist.lst
+%dir %{python2_sitelib}/*
 
 %files help -f doclist.lst
 %{_docdir}/*
 
 %changelog
-* Thu Nov 19 2020 Python_Bot <Python_Bot@openeuler.org>
+* Thu Apr 29 2021 openstack-sig <openstack@openeuler.org>
 - Package Spec generated
