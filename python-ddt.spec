@@ -1,49 +1,37 @@
 %global _empty_manifest_terminate_build 0
 Name:		python-ddt
-Version:	1.4.1
+Version:	1.1.3
 Release:	1
 Summary:	Data-Driven/Decorated Tests
 License:	MIT License
-URL:		https://github.com/datadriventests/ddt
-Source0:	https://files.pythonhosted.org/packages/1b/e3/499cfd630d217a4fa536f03465f879fb68492e2672851214c6eb024f1716/ddt-1.4.1.tar.gz
+URL:		https://github.com/txels/ddt
+Source0:	https://files.pythonhosted.org/packages/50/4e/5a85c13e77af8246b86fb1f341d79ba32d03d8fd5353efa4fa1caa5b7886/ddt-1.1.3.tar.gz
 BuildArch:	noarch
-
-Requires:	python3-enum34
-
 %description
 A library to multiply test cases
 
-
-
-
-%package -n python3-ddt
+%package -n python2-ddt
 Summary:	Data-Driven/Decorated Tests
 Provides:	python-ddt
-BuildRequires:	python3-devel
-BuildRequires:	python3-setuptools
-%description -n python3-ddt
+BuildRequires:	python2-devel
+BuildRequires:	python2-setuptools
+%description -n python2-ddt
 A library to multiply test cases
-
-
-
 
 %package help
 Summary:	Development documents and examples for ddt
-Provides:	python3-ddt-doc
+Provides:	python2-ddt-doc
 %description help
 A library to multiply test cases
 
-
-
-
 %prep
-%autosetup -n ddt-1.4.1
+%autosetup -n ddt-1.1.3
 
 %build
-%py3_build
+%py2_build
 
 %install
-%py3_install
+%py2_install
 install -d -m755 %{buildroot}/%{_pkgdocdir}
 if [ -d doc ]; then cp -arf doc %{buildroot}/%{_pkgdocdir}; fi
 if [ -d docs ]; then cp -arf docs %{buildroot}/%{_pkgdocdir}; fi
@@ -70,12 +58,12 @@ popd
 mv %{buildroot}/filelist.lst .
 mv %{buildroot}/doclist.lst .
 
-%files -n python3-ddt -f filelist.lst
-%dir %{python3_sitelib}/*
+%files -n python2-ddt -f filelist.lst
+%{python2_sitelib}/*
 
 %files help -f doclist.lst
 %{_docdir}/*
 
 %changelog
-* Thu Nov 19 2020 Python_Bot <Python_Bot@openeuler.org>
+* Mon May 10 2021 openstack-sig <openstack@openeuler.org>
 - Package Spec generated
