@@ -1,7 +1,7 @@
 %global _empty_manifest_terminate_build 0
 Name:		python-ddt
 Version:	1.1.3
-Release:	1
+Release:	2
 Summary:	Data-Driven/Decorated Tests
 License:	MIT License
 URL:		https://github.com/txels/ddt
@@ -12,8 +12,9 @@ A library to multiply test cases
 
 %package -n python2-ddt
 Summary:	Data-Driven/Decorated Tests
-Provides:	python-ddt
+Provides:	python2-ddt
 BuildRequires:	python2-devel
+BuildRequires:  python2-pbr
 BuildRequires:	python2-setuptools
 %description -n python2-ddt
 A library to multiply test cases
@@ -65,5 +66,7 @@ mv %{buildroot}/doclist.lst .
 %{_docdir}/*
 
 %changelog
+* Sun May 23 2021 openstack-sig <openstack@openeuler.org>
+- Fix Provides
 * Mon May 10 2021 openstack-sig <openstack@openeuler.org>
 - Package Spec generated
