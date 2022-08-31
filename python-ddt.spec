@@ -1,11 +1,11 @@
 %global _empty_manifest_terminate_build 0
 Name:           python-ddt
-Version:        1.4.4
+Version:        1.6.0
 Release:        1
 Summary:        Data-Driven/Decorated Tests
 License:        MIT
 URL:            https://github.com/datadriventests/ddt
-Source0:        https://files.pythonhosted.org/packages/7a/02/32d3275e7d1793436c6373fe43d2808f52932ea002f1086961a7301c8ab8/ddt-1.4.4.tar.gz
+Source0:        https://files.pythonhosted.org/packages/c2/b2/20cfe16303e0bef0b2fb54024118ff97fa752414763ab626486794dab072/ddt-1.6.0.tar.gz
 BuildArch:      noarch
 %description
 A library to multiply test cases
@@ -80,6 +80,9 @@ mv %{buildroot}/doclist.lst .
 %{_docdir}/*
 
 %changelog
+* Wed Aug 31 2022 hkgy <kaguyahatu@outlook.com> - 1.6.0-1
+- Update to 1.6.0
+
 * Thu May 19 2022 renliang16 <renliang@uniontech.com> - 1.4.4-1
 - Upgrade package python3-ddt to version 1.4.4
 
